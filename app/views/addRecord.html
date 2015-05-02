@@ -1,0 +1,63 @@
+<div class="col-md-6 col-xs-10">
+	<form>
+		<div class="col-md-6 col-xs-6">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Name</label>
+				<input class="form-control" ng-model="recordsCtrl.newRecord.name">
+			</div>
+			<div class="form-group">
+				<label>Surname</label>
+				<input class="form-control" ng-model="recordsCtrl.newRecord.surname">
+
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile">Middlename</label>
+				<input class="form-control" ng-model="recordsCtrl.newRecord.middlename">
+			</div>
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">Birth</label>	
+				<input class="form-control" ng-model="recordsCtrl.newRecord.birth">
+			</div>
+			<div class="form-group">
+				<label>Department</label>
+				<select ng-model="recordsCtrl.newRecord.department" name="department" ng-options="dep for dep in recordsCtrl.departments" class="form-control" required>	
+				</select>
+			</div>
+
+		</div>
+		<div class="col-md-6 col-xs-6">
+			<label for="exampleInputFile">Date</label>
+			<p class="input-group">
+				<input type="text"  ng-model="recordsCtrl.newRecord.date" class="form-control" datepicker-popup="{{format}}" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="recordsCtrl.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>
+			</p>
+			<div class="form-group">
+				<label for="exampleInputFile">Doctor</label>
+				<input class="form-control" ng-model="recordsCtrl.newRecord.doctor">
+
+			</div>
+
+			<div class="form-group">
+				<label for="exampleInputFile">Inspections</label>
+				<select ng-model="recordsCtrl.newRecord.inspects" name="inspect" ng-options="inspect for inspect in recordsCtrl.inspect" class="form-control" required>	
+				</select>
+				
+			</div>
+
+			
+			<div class="btn-group">
+				<label class="btn btn-primary" ng-model="radioModel" btn-radio="'firstly'" uncheckable>Firstly</label>
+				<label class="btn btn-primary" ng-model="radioModel" btn-radio="'secondary'" uncheckable>Secondary</label>			
+			</div>
+
+		</div>
+
+	</form>
+	<div class="but-add-record">
+		<button type="submit"  ng-click="recordsCtrl.add()" class="btn btn-success btn-default">Submit Form</button>
+	</div>
+
+</div>

@@ -1,0 +1,36 @@
+{
+  "name": "patient-records",
+  "version": "0.0.0",
+  "main": "index.html",
+  "window": {
+    "toolbar": true,
+    "width": 800,
+    "height": 600,
+    "frame": true,
+    "position": "center",
+    "fullscreen": false,
+    "resizable": false
+  },
+  "node-remote": "<local>",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node ./node_modules/nw/bin/nw",
+    "install": "node ./node_modules/bower/bin/bower install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kobvel/patient-records.git"
+  },
+  "author": "kobvel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kobvel/patient-records/issues"
+  },
+  "dependencies": {
+    "bower": "^1.4.1",
+    "express": "^3.20.2",
+    "nedb": "^1.1.2",
+    "nw": "^0.12.1"
+  }
+}

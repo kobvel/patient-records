@@ -1,0 +1,32 @@
+
+<table class="table table-hovered table-bordered main-stat">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Surname</th>
+			<th>Middlename</th>
+			<th>Birth</th>
+			<th>Department</th>
+			<th>Doctor</th>
+			<th>Inspections</th>
+			<th>Type</th>
+			<th>Date</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+	
+		<tr ng-repeat="record in recordsCtrl.records">
+			<td ng-bind="record.name"></td>
+		    <td ng-bind="record.surname"></td>
+		    <td ng-bind="record.middlename"></td>
+		    <td ng-bind="record.birth"></td>
+		    <td ng-bind="record.department"></td>
+		    <td ng-bind="record.doctor"></td>
+		    <td ng-bind="record.inspections"></td>
+		    <td ng-bind="record.type"></td>
+		    <td ng-bind="record.date"></td>
+			<td><button class="btn btn-xs btn-danger" ng-click="recordsCtrl.delete(record)">Delete</button></td>
+		</tr>
+	</tbody>
+</table>
