@@ -3,12 +3,17 @@
     .module('patientrec.controllers')
     .controller('RecordsController', RecordsController);
 
-  RecordsController.$inject = ['RecordsDB', 'records', '$scope'];
+  RecordsController.$inject = ['RecordsDB', 'records', '$scope', '$filter'];
 
-  function RecordsController(RecordsDB, records, $scope) {
+  function RecordsController(RecordsDB, records, $scope, $filter) {
     var self = this;
+
+
     var todayD;
+
     self.records = records;
+    self.inspectSelected = 'abdominal';
+
     var newRecord = {
       name: '',
       surname: '',
@@ -16,32 +21,34 @@
       birth: '',
       department: '',
       doctor: '',
-      inspections: '',
+      inspections: [],
       type: '',
       date: ''
     };
 
-
+    function getInspects() {
+      if (self.inspectSelected === 'heart') {
+        self.newRecord.inspections.push('Heart');
+      } else if (self.abdominal.stomach) {
+        self.newRecord.inspections.push('Stomach');
+      } else {
+        for (key in self.abdominal) {
+          if (self.abdominal[key]) {
+            self.newRecord.inspections.push(key);
+          }
+        }
+      }
+    };
     self.newRecord = angular.copy(newRecord);
-
     $scope.today = function() {
       self.newRecord.date = new Date();
     };
     $scope.today();
 
-    $scope.formats = ['dd-MMMM-yyyy hh:mm'];
-    $scope.format = $scope.formats[0];
-
-
-    self.open = function($event) {
-
-      $event.preventDefault();
-      $event.stopPropagation();
-      $scope.opened = true;
-    };
 
 
     self.add = function() {
+      getInspects();
       var input = angular.copy(self.newRecord);
 
       RecordsDB.add(input, function(data) {
@@ -57,14 +64,18 @@
         self.records.splice(self.records.indexOf(record), 1);
       })
     }
-
+    self.abdominal = {
+      kidneys: false,
+      bladder: false,
+      gynecology: false,
+      stomach: false
+    }
     self.departments = [
       'Cardiology',
       'Therapy',
       'Urology',
       'Stomatology'
     ];
-    self.review = 'firstly';
     self.inspect = [
       'abdominal',
       'heart'

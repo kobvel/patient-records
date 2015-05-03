@@ -1,56 +1,90 @@
 <div class="col-md-6 col-xs-10">
-	<form>
+	<form  name="firstForm" novalidate>
 		<div class="col-md-6 col-xs-6">
 			<div class="form-group">
-				<label for="exampleInputEmail1">Name</label>
-				<input class="form-control" ng-model="recordsCtrl.newRecord.name">
+				<label>Name</label>
+				<input class="form-control" name="name" ng-model="recordsCtrl.newRecord.name" required>
+				<span style="color:red" class="error-message" ng-show="firstForm.name.$dirty && firstForm.name.$invalid">The name is invalid</span>
 			</div>
 			<div class="form-group">
 				<label>Surname</label>
-				<input class="form-control" ng-model="recordsCtrl.newRecord.surname">
-
+				<input class="form-control"  name="surname" ng-model="recordsCtrl.newRecord.surname" required>
+				<span style="color:red" class="error-message" ng-show="firstForm.surname.$dirty && firstForm.surname.$invalid">The surname is invalid</span>
 			</div>
 			<div class="form-group">
-				<label for="exampleInputFile">Middlename</label>
-				<input class="form-control" ng-model="recordsCtrl.newRecord.middlename">
+				<label>Middlename</label>
+				<input class="form-control"  name="middlename" ng-model="recordsCtrl.newRecord.middlename" required>
+				<span style="color:red" class="error-message" ng-show="firstForm.middlename.$dirty && firstForm.middlename.$invalid">The middlename is invalid</span>
 			</div>
 
 			<div class="form-group">
-				<label for="exampleInputEmail1">Birth</label>	
-				<input class="form-control" ng-model="recordsCtrl.newRecord.birth">
+				<label for="date-birth" class="control-label">Birth date:</label>
+				<div class="control">
+					<input class="form-control"  name="birth" type="date" ng-model="recordsCtrl.newRecord.birth" required>
+				</div>
+				<span style="color:red" class="error-message" ng-show="firstForm.birth.$dirty && firstForm.birth.$invalid">The birth is invalid</span>
 			</div>
 			<div class="form-group">
 				<label>Department</label>
 				<select ng-model="recordsCtrl.newRecord.department" name="department" ng-options="dep for dep in recordsCtrl.departments" class="form-control" required>	
 				</select>
+				<span style="color:red" class="error-message" ng-show="firstForm.department.$invalid">The department is required</span>
 			</div>
 
 		</div>
 		<div class="col-md-6 col-xs-6">
-			<label for="exampleInputFile">Date</label>
-			<p class="input-group">
-				<input type="text"  ng-model="recordsCtrl.newRecord.date" class="form-control" datepicker-popup="{{format}}" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-				<span class="input-group-btn">
-					<button type="button" class="btn btn-default" ng-click="recordsCtrl.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-				</span>
-			</p>
+
+			<div class="form-group">
+				<label for="date-birth"  class="control-label">Date:</label>
+				<div class="control">					
+					<input type="date" class="form-control" name="date" ng-model="recordsCtrl.newRecord.date"
+					placeholder="yyyy-MM-dd" required />
+				</div>
+				<span style="color:red" class="error-message" ng-show=" firstForm.date.$invalid">The date is invalid</span>
+			</div>
+
+			
 			<div class="form-group">
 				<label for="exampleInputFile">Doctor</label>
-				<input class="form-control" ng-model="recordsCtrl.newRecord.doctor">
-
+				<input class="form-control" name="doctor" ng-model="recordsCtrl.newRecord.doctor" required>
+				<span style="color:red" class="error-message" ng-show="firstForm.doctor.$dirty && firstForm.doctor.$invalid">The doctor is invalid</span>
 			</div>
 
 			<div class="form-group">
 				<label for="exampleInputFile">Inspections</label>
-				<select ng-model="recordsCtrl.newRecord.inspects" name="inspect" ng-options="inspect for inspect in recordsCtrl.inspect" class="form-control" required>	
+				<select ng-model="recordsCtrl.inspectSelected" name="inspect" ng-options="inspect for inspect in recordsCtrl.inspect" class="form-control" required>	
 				</select>
 				
 			</div>
-
-			
+			<div ng-if="recordsCtrl.inspectSelected=='abdominal'">
+				<div class="checkbox">
+					<label>
+						<input ng-model="recordsCtrl.abdominal.kidneys" type="checkbox" ng-disabled="recordsCtrl.abdominal.stomach">
+						kidneys 
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input ng-model="recordsCtrl.abdominal.bladder" type="checkbox" ng-disabled="recordsCtrl.abdominal.stomach" >
+						bladder
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input ng-model="recordsCtrl.abdominal.gynecology" type="checkbox" ng-disabled="recordsCtrl.abdominal.stomach">
+						gynecology 
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input ng-model="recordsCtrl.abdominal.stomach" type="checkbox">
+						All stomach
+					</label>
+				</div>
+			</div>
 			<div class="btn-group">
-				<label class="btn btn-primary" ng-model="radioModel" btn-radio="'firstly'" uncheckable>Firstly</label>
-				<label class="btn btn-primary" ng-model="radioModel" btn-radio="'secondary'" uncheckable>Secondary</label>			
+				<label class="btn btn-primary" ng-model="recordsCtrl.newRecord.type" btn-radio="'firstly'" uncheckable>Firstly</label>
+				<label class="btn btn-primary" ng-model="recordsCtrl.newRecord.type" btn-radio="'secondary'" uncheckable>Secondary</label>			
 			</div>
 
 		</div>
