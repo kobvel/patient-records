@@ -13,15 +13,49 @@
 		</tr>
 	</thead>
 	<tbody>
-	
+		<tr>
+			<td>asd</td>
+			<td><input class="form-control"></td>
+			<td><select class="form-control">
+				<option>all departments</option>
+				<option ng-repeat="dep in recordsCtrl.departments">{{dep}}</option>
+			</select></td>
+			<td>
+				<select class="form-control">
+					<option>all doctors</option>				
+				</select>
+			</td>
+			<td>
+				<select class="form-control">
+					<option>all reviews</option>				
+				</select>
+			</td>
+			<td>
+				<select class="form-control">
+					<option>firstly</option>				
+					<option>secondary</option>				
+				</select>
+			</td>
+			<td>
+				<select class="form-control">
+					
+				</select>
+			</td>
+			<td>
+				<select class="form-control">
+					
+				</select>
+			</td>
+
+		</tr>
 		<tr ng-repeat="record in recordsCtrl.records">
 			<td ng-bind="record.name +' '+record.surname+' '+record.middlename"></td>
-		    <td ng-bind="record.birth"></td>
-		    <td ng-bind="record.department"></td>
-		    <td ng-bind="record.doctor"></td>
-		    <td ng-bind="record.inspections"></td>
-		    <td ng-bind="record.type"></td>
-		    <td ng-bind="record.date | date:'dd-MM-yyyy'"></td>
+			<td ng-bind="record.birth | date:'dd-MM-yyyy' "></td>
+			<td ng-bind="record.department"></td>
+			<td ng-bind="record.doctor"></td>
+			<td ng-bind="record.inspections"></td>
+			<td ng-bind="record.type"></td>
+			<td ng-bind="record.date | date:'dd-MM-yyyy'"></td>
 			<td><button class="btn btn-xs btn-danger" ng-click="recordsCtrl.delete(record)">Delete</button></td>
 		</tr>
 	</tbody>

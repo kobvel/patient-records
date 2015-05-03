@@ -1,20 +1,20 @@
 <div class="col-md-6 col-xs-10">
-	<form  name="firstForm" novalidate>
+	<form  name="recordsCtrl.firstForm" novalidate>
 		<div class="col-md-6 col-xs-6">
 			<div class="form-group">
 				<label>Name</label>
 				<input class="form-control" name="name" ng-model="recordsCtrl.newRecord.name" required>
-				<span style="color:red" class="error-message" ng-show="firstForm.name.$dirty && firstForm.name.$invalid">The name is invalid</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.name.$dirty && recordsCtrl.firstForm.name.$invalid">The name is invalid</span>
 			</div>
 			<div class="form-group">
 				<label>Surname</label>
 				<input class="form-control"  name="surname" ng-model="recordsCtrl.newRecord.surname" required>
-				<span style="color:red" class="error-message" ng-show="firstForm.surname.$dirty && firstForm.surname.$invalid">The surname is invalid</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.surname.$dirty && recordsCtrl.firstForm.surname.$invalid">The surname is invalid</span>
 			</div>
 			<div class="form-group">
 				<label>Middlename</label>
 				<input class="form-control"  name="middlename" ng-model="recordsCtrl.newRecord.middlename" required>
-				<span style="color:red" class="error-message" ng-show="firstForm.middlename.$dirty && firstForm.middlename.$invalid">The middlename is invalid</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.middlename.$dirty && recordsCtrl.firstForm.middlename.$invalid">The middlename is invalid</span>
 			</div>
 
 			<div class="form-group">
@@ -22,13 +22,13 @@
 				<div class="control">
 					<input class="form-control"  name="birth" type="date" ng-model="recordsCtrl.newRecord.birth" required>
 				</div>
-				<span style="color:red" class="error-message" ng-show="firstForm.birth.$dirty && firstForm.birth.$invalid">The birth is invalid</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.birth.$dirty && recordsCtrl.firstForm.birth.$invalid">The birth is invalid</span>
 			</div>
 			<div class="form-group">
 				<label>Department</label>
 				<select ng-model="recordsCtrl.newRecord.department" name="department" ng-options="dep for dep in recordsCtrl.departments" class="form-control" required>	
 				</select>
-				<span style="color:red" class="error-message" ng-show="firstForm.department.$invalid">The department is required</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.department.$invalid">The department is required</span>
 			</div>
 
 		</div>
@@ -40,14 +40,14 @@
 					<input type="date" class="form-control" name="date" ng-model="recordsCtrl.newRecord.date"
 					placeholder="yyyy-MM-dd" required />
 				</div>
-				<span style="color:red" class="error-message" ng-show=" firstForm.date.$invalid">The date is invalid</span>
+				<span style="color:red" class="error-message" ng-show=" recordsCtrl.firstForm.date.$invalid">The date is invalid</span>
 			</div>
 
 			
 			<div class="form-group">
 				<label for="exampleInputFile">Doctor</label>
 				<input class="form-control" name="doctor" ng-model="recordsCtrl.newRecord.doctor" required>
-				<span style="color:red" class="error-message" ng-show="firstForm.doctor.$dirty && firstForm.doctor.$invalid">The doctor is invalid</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.doctor.$dirty && recordsCtrl.firstForm.doctor.$invalid">The doctor is invalid</span>
 			</div>
 
 			<div class="form-group">
@@ -91,7 +91,7 @@
 
 	</form>
 	<div class="but-add-record">
-		<button type="submit"  ng-click="recordsCtrl.add()" class="btn btn-success btn-default">Submit Form</button>
+		<button type="submit"  ng-click="recordsCtrl.add(); recordsCtrl.firstForm.$setUntouched()" class="btn btn-success btn-default"  ng-disabled="!recordsCtrl.submit()">Submit Form</button>
 	</div>
 
 </div>

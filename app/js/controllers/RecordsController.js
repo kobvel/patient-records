@@ -8,7 +8,7 @@
   function RecordsController(RecordsDB, records, $scope, $filter) {
     var self = this;
 
-
+    self.firstForm = {};
     var todayD;
 
     self.records = records;
@@ -45,11 +45,19 @@
     };
     $scope.today();
 
-
+    self.submit = function() {
+      var bool = true;
+      for (key in self.newRecord) {
+        bool = bool && self.newRecord[key];
+      }
+      return bool;
+    }
 
     self.add = function() {
       getInspects();
       var input = angular.copy(self.newRecord);
+      self.firstForm.$setPristine();
+      self.firstForm.$setUntouched();
 
       RecordsDB.add(input, function(data) {
         self.newRecord = angular.copy(newRecord);
