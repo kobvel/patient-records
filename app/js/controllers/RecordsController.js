@@ -1,3 +1,4 @@
+/// <reference path="../../../typings/angularjs/angular.d.ts"/>
 (function() {
   angular
     .module('patientrec.controllers')
@@ -9,10 +10,9 @@
     var self = this;
 
     self.firstForm = {};
-    var todayD;
 
     self.records = records;
-    self.inspectSelected = 'abdominal';
+    self.inspectSelected = 'шлунок';
 
     var newRecord = {
       name: '',
@@ -27,14 +27,14 @@
     };
 
     function getInspects() {
-      if (self.inspectSelected === 'heart') {
-        self.newRecord.inspections.push('Heart');
-      } else if (self.abdominal.stomach) {
-        self.newRecord.inspections.push('Stomach');
+      if (self.inspectSelected === 'серце') {
+        self.newRecord.inspections.push('серце');
+      } else if (self.abdominal.stomach.bool) {
+        self.newRecord.inspections.push('ОЧВ');
       } else {
-        for (key in self.abdominal) {
-          if (self.abdominal[key]) {
-            self.newRecord.inspections.push(key);
+        for (Key in self.abdominal) {
+          if (self.abdominal[Key].bool) {
+            self.newRecord.inspections.push(self.abdominal[Key].value);
           }
         }
       }
@@ -47,11 +47,11 @@
 
     self.submit = function() {
       var bool = true;
-      for (key in self.newRecord) {
-        bool = bool && self.newRecord[key];
+      for (Key in self.newRecord) {
+        bool = bool && self.newRecord[Key];
       }
       return bool;
-    }
+    };
 
     self.add = function() {
       getInspects();
@@ -70,23 +70,41 @@
         id: record._id
       }, function() {
         self.records.splice(self.records.indexOf(record), 1);
-      })
-    }
+      });
+    };
     self.abdominal = {
-      kidneys: false,
-      bladder: false,
-      gynecology: false,
-      stomach: false
-    }
+      kidneys: {
+        bool: false,
+        value: 'нирки'
+      },
+      bladder: {
+        bool: false,
+        value: 'сеч.міхур'
+      },
+      gynecology: {
+        bool: false,
+        value: 'гінекологія'
+      },
+      stomach: {
+        bool: false,
+        value: 'ОЧВ'
+      }
+    };
     self.departments = [
-      'Cardiology',
-      'Therapy',
-      'Urology',
-      'Stomatology'
+      'Кардіологія',
+      'Терапія',
+      'Урологія',
+      'Стоматолог'
     ];
     self.inspect = [
-      'abdominal',
-      'heart'
+      'шлунок',
+      'серце'
+    ];
+    self.doctors = [
+      'Гордеева Тетьяна Олександрівна',
+      'Русева Наталія Миколаївна',
+      'Фесенко Сергій Олександрович',
+      'Киценко Віталій Олегович'
     ];
   }
 })();

@@ -2,96 +2,96 @@
 	<form  name="recordsCtrl.firstForm" novalidate>
 		<div class="col-md-6 col-xs-6">
 			<div class="form-group">
-				<label>Name</label>
+				<label>Ім'я</label>
 				<input class="form-control" name="name" ng-model="recordsCtrl.newRecord.name" required>
-				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.name.$dirty && recordsCtrl.firstForm.name.$invalid">The name is invalid</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.name.$dirty && recordsCtrl.firstForm.name.$invalid">Необхідно вкаати ім'я</span>
 			</div>
 			<div class="form-group">
-				<label>Surname</label>
+				<label>Прізвище</label>
 				<input class="form-control"  name="surname" ng-model="recordsCtrl.newRecord.surname" required>
-				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.surname.$dirty && recordsCtrl.firstForm.surname.$invalid">The surname is invalid</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.surname.$dirty && recordsCtrl.firstForm.surname.$invalid">Необхідно вкаати прізвище</span>
 			</div>
 			<div class="form-group">
-				<label>Middlename</label>
+				<label>По батькові</label>
 				<input class="form-control"  name="middlename" ng-model="recordsCtrl.newRecord.middlename" required>
-				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.middlename.$dirty && recordsCtrl.firstForm.middlename.$invalid">The middlename is invalid</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.middlename.$dirty && recordsCtrl.firstForm.middlename.$invalid">Необхідно вкаати по батькові</span>
 			</div>
 
 			<div class="form-group">
-				<label for="date-birth" class="control-label">Birth date:</label>
+				<label for="date-birth" class="control-label">Дата народження</label>
 				<div class="control">
-					<input class="form-control"  name="birth" type="date" ng-model="recordsCtrl.newRecord.birth" required>
+					<input class="form-control"  name="birth" type="number"  min="1910" max="2015" ng-model="recordsCtrl.newRecord.birth" required>
 				</div>
 				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.birth.$dirty && recordsCtrl.firstForm.birth.$invalid">The birth is invalid</span>
 			</div>
 			<div class="form-group">
-				<label>Department</label>
+				<label>Відділення</label>
 				<select ng-model="recordsCtrl.newRecord.department" name="department" ng-options="dep for dep in recordsCtrl.departments" class="form-control" required>	
 				</select>
-				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.department.$invalid">The department is required</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.department.$invalid">Необхідно вкаати відділення</span>
 			</div>
 
 		</div>
 		<div class="col-md-6 col-xs-6">
 
 			<div class="form-group">
-				<label for="date-birth"  class="control-label">Date:</label>
-				<div class="control">					
-					<input type="date" class="form-control" name="date" ng-model="recordsCtrl.newRecord.date"
-					placeholder="yyyy-MM-dd" required />
+				<label for="date-birth"  class="control-label">Дата та час</label>
+				<div>
+    				<pre>Обрана дата та  час: <em>{{recordsCtrl.newRecord.date | date:'dd/MM/yyyy HH:mm' }}</em></pre>
 				</div>
-				<span style="color:red" class="error-message" ng-show=" recordsCtrl.firstForm.date.$invalid">The date is invalid</span>
 			</div>
 
 			
 			<div class="form-group">
-				<label for="exampleInputFile">Doctor</label>
-				<input class="form-control" name="doctor" ng-model="recordsCtrl.newRecord.doctor" required>
-				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.doctor.$dirty && recordsCtrl.firstForm.doctor.$invalid">The doctor is invalid</span>
+				<label for="exampleInputFile">Лікар</label>
+				<select ng-model="recordsCtrl.newRecord.doctor" name="doctor" ng-options="doctor for doctor in recordsCtrl.doctors" class="form-control" required>	
+				</select>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.doctor.$dirty && recordsCtrl.firstForm.doctor.$invalid">Необхідно вказати лікаря</span>
 			</div>
 
 			<div class="form-group">
-				<label for="exampleInputFile">Inspections</label>
+				<label for="exampleInputFile">Огляд</label>
 				<select ng-model="recordsCtrl.inspectSelected" name="inspect" ng-options="inspect for inspect in recordsCtrl.inspect" class="form-control" required>	
 				</select>
 				
 			</div>
-			<div ng-if="recordsCtrl.inspectSelected=='abdominal'">
+			<div ng-if="recordsCtrl.inspectSelected=='шлунок'">
 				<div class="checkbox">
 					<label>
-						<input ng-model="recordsCtrl.abdominal.kidneys" type="checkbox" ng-disabled="recordsCtrl.abdominal.stomach">
-						kidneys 
+						<input ng-model="recordsCtrl.abdominal.kidneys.bool" type="checkbox" ng-disabled="recordsCtrl.abdominal.stomach.bool">
+						нирки 
 					</label>
 				</div>
 				<div class="checkbox">
 					<label>
-						<input ng-model="recordsCtrl.abdominal.bladder" type="checkbox" ng-disabled="recordsCtrl.abdominal.stomach" >
-						bladder
+						<input ng-model="recordsCtrl.abdominal.bladder.bool" type="checkbox" ng-disabled="recordsCtrl.abdominal.stomach.bool" >
+						сечевий міхур
 					</label>
 				</div>
 				<div class="checkbox">
 					<label>
-						<input ng-model="recordsCtrl.abdominal.gynecology" type="checkbox" ng-disabled="recordsCtrl.abdominal.stomach">
-						gynecology 
+						<input ng-model="recordsCtrl.abdominal.gynecology.bool" type="checkbox" ng-disabled="recordsCtrl.abdominal.stomach.bool">
+						гінекологія 
 					</label>
 				</div>
 				<div class="checkbox">
 					<label>
-						<input ng-model="recordsCtrl.abdominal.stomach" type="checkbox">
-						All stomach
+						<input ng-model="recordsCtrl.abdominal.stomach.bool" type="checkbox">
+						ОЧВ
 					</label>
 				</div>
 			</div>
 			<div class="btn-group">
-				<label class="btn btn-primary" ng-model="recordsCtrl.newRecord.type" btn-radio="'firstly'" uncheckable>Firstly</label>
-				<label class="btn btn-primary" ng-model="recordsCtrl.newRecord.type" btn-radio="'secondary'" uncheckable>Secondary</label>			
+				<label class="btn btn-primary" ng-model="recordsCtrl.newRecord.type" btn-radio="'firstly'" uncheckable>Первинний</label>
+				<label class="btn btn-primary" ng-model="recordsCtrl.newRecord.type" btn-radio="'secondary'" uncheckable>Вторинний</label>			
 			</div>
 
 		</div>
 
 	</form>
-	<div class="but-add-record">
-		<button type="submit"  ng-click="recordsCtrl.add(); recordsCtrl.firstForm.$setUntouched()" class="btn btn-success btn-default"  ng-disabled="!recordsCtrl.submit()">Submit Form</button>
-	</div>
 
+
+</div>
+<div class="but-add-record">
+	<button type="submit"  ng-click="recordsCtrl.add(); recordsCtrl.firstForm.$setUntouched()" class="btn btn-success btn-default"  ng-disabled="!recordsCtrl.submit()">Submit Form</button>
 </div>

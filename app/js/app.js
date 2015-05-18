@@ -14,7 +14,7 @@
     .controller('WindowToolbar', WindowToolbar)
     .factory('Window', function() {
       var gui = require('nw.gui');
-      return gui.Window.get()
+      return gui.Window.get();
     })
 
   stateConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
