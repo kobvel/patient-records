@@ -4,9 +4,9 @@
     .module('patientrec.controllers')
     .controller('RecordsController', RecordsController);
 
-  RecordsController.$inject = ['RecordsDB', 'records', '$scope', '$filter', '$sce'];
+  RecordsController.$inject = ['RecordsDB', 'NewRecord', 'records', '$scope', '$filter', '$sce'];
 
-  function RecordsController(RecordsDB, records, $scope, $filter, $sce) {
+  function RecordsController(RecordsDB, NewRecord, records, $scope, $filter, $sce) {
     var self = this;
     self.pdfSrc = null;
     self.firstForm = {};
@@ -63,21 +63,19 @@
       return $sce.trustAsResourceUrl(src);
     }
     self.generatePdf = function() {
-      var pdf = new jsPDF('p', 'pt', 'a4');
-      pdf.text(20, 20, 'Hello world!');
-      pdf.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-      pdf.addPage('a6', 'l');
-      pdf.text(20, 20, 'Do you like that?');
+      /*  var pdf = new jsPDF('p', 'pt', 'a4');
 
 
-      var string = pdf.output('datauristring');
-      console.log(string);
-      $('.preview-pane').attr('src', string);
+      var string = pdf.output('dataurlstring');*/
+
+      //document.getElementById('preview').src = string;
 
 
-
-
+      window.frames["preview"].focus();
+      window.frames["preview"].print();
     }
+
+
     $scope.today = function() {
       self.newRecord.date = new Date();
     };
@@ -91,9 +89,13 @@
       return bool;
     };
 
-    self.add = function() {
+    self.generateForm = function() {
       getInspects();
       var input = angular.copy(self.newRecord);
+      console.log(self.newRecord);
+      NewRecord.setRecord(self.newRecord);
+    }
+    self.add = function() {
       self.firstForm.$setPristine();
       self.firstForm.$setUntouched();
 

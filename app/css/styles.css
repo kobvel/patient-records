@@ -36,3 +36,13 @@
 	border: solid black 1px;
 	height: 65em;
 }
+#preview{
+	width: 100%;
+	height: 65em;
+}
+.head-print {
+	padding-top: 10px;
+}
+.head-print h4{
+	text-align: center;
+}
