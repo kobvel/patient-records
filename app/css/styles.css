@@ -11,15 +11,28 @@
 }
 .main-stat{
 	font-size: 12px;
+	table-layout:fixed;
+	overflow-y: scroll;
+	word-break: normal;
 
 }
 
 .but-add-record{
-	padding-top: 27em;
+	padding-top: 1em;
 	text-align: right;
 	vertical-align: text-bottom;
 
 }
 .view-route{
 	padding-top: 50px;
+}
+
+#table-div{
+	height: 10em;
+}
+
+.pdf-view{
+	border-radius: 10px;
+	border: solid black 1px;
+	height: 65em;
 }

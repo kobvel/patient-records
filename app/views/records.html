@@ -1,68 +1,70 @@
+<div id="table-div">
+	<div class="form-group header-for-table">
+		<div>
+			<pre>Кількість за обраними фільтрами: <em>12321</em></pre>
+		</div>
+	</div>
+	<table class="table table-hovered table-bordered main-stat">
+		<thead>
+			<tr>
+				<th>№</th>
+				<th>ФІО</th>
+				<th>Дата народження</th>
+				<th>Відділення</th>
+				<th>Лікар</th>
+				<th>Огляд</th>
+				<th>Тип огляду</th>
+				<th>Дата</th>
+				<th>Дія</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td>
+					<input type="text" class="form-control" placeholder="прізвище" ng-model="recordsCtrl.filter.surname">
+				</td>
+				<td>
+					<input type="text" class="form-control" placeholder="рік народження" ng-model="recordsCtrl.filter.birth">
+				</td>
+				<td>
+					<select ng-model="recordsCtrl.filter.department" name="department" ng-options="dep for dep in recordsCtrl.departments" class="form-control">	
+					</select>
+				</td>
+				<td>
+					<select ng-model="recordsCtrl.filter.doctor" name="dooctor" ng-options="doc for doc in recordsCtrl.doctors" class="form-control">	
+					</select>
+				</td>
+				<td>
 
-<table class="table table-hovered table-bordered main-stat">
-	<thead>
-		<tr>
-			<th>ФІО</th>
-			<th>Дата народження</th>
-			<th>Відділення</th>
-			<th>Лікар</th>
-			<th>Огляд</th>
-			<th>Тип огляду</th>
-			<th>Дата</th>
-			<th>Дія</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td></td>
-			<td>
-			
-			</td>
-			<td>
-				<select class="form-control">
-					<option>Всі відділення</option>
-					<option ng-repeat="dep in recordsCtrl.departments">{{dep}}</option>
-				</select>
-			</td>
-			<td>
-				<select class="form-control">
-					<option>Всі лікарі</option>
-					<option ng-repeat="doctor in recordsCtrl.doctors">{{doctor}}</option>
-				</select>
-			</td>
-			<td>
-				<select class="form-control">
-					<option>Усі огляди</option>				
-				</select>
-			</td>
-			<td>
-				<select class="form-control">
-					<option>всі огляди</option>
-					<option>первинний</option>				
-					<option>вторинний</option>				
-				</select>
-			</td>
-			<td>
-				<input type="date" class="form-control" name="input" ng-model="example.value"
-       placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" required />
+				</td>
+				<td>
+					<select ng-model="recordsCtrl.filter.type" name="type" class="form-control">	
+						<option>первинний</option>
+						<option>вторинний</option>
+					</select>
+				</td>
+				<td>
+					<input type="text" class="form-control" placeholder="дата" ng-model="recordsCtrl.filter.date">
+				</td>
+				<td>
 
-			</td>
-			<td>
-				<select class="form-control">
+				</td>
 
-				</select>
-			</td>
+			</tr>
+			<tr ng-repeat="record in recordsCtrl.records | filter:{doctor: recordsCtrl.filter.doctor, type: recordsCtrl.filter.type, department: recordsCtrl.filter.department, birth: recordsCtrl.filter.birth, date: recordsCtrl.filter.date, surname: recordsCtrl.filter.surname}">
+				<td>{{$index+1}}</td>
+				<td ng-bind="record.surname +' '+record.name+' '+record.middlename"></td>
+				<td ng-bind="record.birth | date:'yyyy' "></td>
+				<td ng-bind="record.department"></td>
+				<td ng-bind="record.doctor"></td>
+				<td ng-bind="record.inspections"></td>
+				<td ng-bind="record.type"></td>
+				<td ng-bind="record.date | date:'dd/MM/yyyy HH:mm'"></td>
+				<td><button class="btn btn-xs btn-danger" ng-click="recordsCtrl.delete(record)">Delete</button></td>
+			</tr>
+			<button class="btn btn-xs btn-danger" ng-click="recordsCtrl.filters()">Clear filter</button>
+		</tbody>
 
-		</tr>
-		<tr ng-repeat="record in recordsCtrl.records">
-			<td ng-bind="record.name +' '+record.surname+' '+record.middlename"></td>
-			<td ng-bind="record.birth | date:'yyyy' "></td>
-			<td ng-bind="record.department"></td>
-			<td ng-bind="record.doctor"></td>
-			<td ng-bind="record.inspections"></td>
-			<td ng-bind="record.type"></td>
-			<td ng-bind="record.date | date:'dd/MM/yyyy HH:mm'"></td>
-			<td><button class="btn btn-xs btn-danger" ng-click="recordsCtrl.delete(record)">Delete</button></td>
-		</tr>
-	</tbody>
-</table>
+	</table>
+</div>

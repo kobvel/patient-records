@@ -1,25 +1,7 @@
-{"name":"фыв","surname":"фыв","middlename":"фыв","birth":"2015-04-30T21:00:00.000Z","department":"Cardiology","doctor":"фыв","inspections":["Heart"],"type":"secondary","date":"2015-05-03T18:27:04.937Z","date_add":{"$$date":1430677636896},"_id":"FElgLGIht3TEygdy"}
-{"name":"жюэ","surname":"южэ","middlename":"дэб","birth":"2015-04-27T21:00:00.000Z","department":"Therapy","doctor":"жюэжюэ","inspections":["kidneys","bladder"],"type":"secondary","date":"2015-05-09T09:55:13.593Z","date_add":{"$$date":1431165459663},"_id":"aEG7cHgaVhDxcdDG"}
-{"name":"Михаил","surname":"Чурилов","middlename":"Михайлович","birth":"1994-12-02T22:00:00.000Z","department":"Cardiology","doctor":"Жданов","inspections":["Stomach"],"type":"firstly","date":"2015-05-05T09:44:21.962Z","date_add":{"$$date":1431164969783},"_id":"l7rXbimDc46P2UNs"}
-{"name":"фыв","surname":"фыв","middlename":"фвыфвы","birth":"2015-05-12T21:00:00.000Z","department":"Therapy","doctor":"Киценко Виталий Олегович","inspections":["Heart"],"type":"secondary","date":"2015-05-18T09:56:46.339Z","date_add":{"$$date":1431943021489},"_id":"mps99gZjWrq7r7bK"}
-{"name":"Фыв","surname":"фыв","middlename":"ыфв","birth":"2015-05-05T21:00:00.000Z","department":"Терапія","doctor":"Гордеева Тетьяна Олександрівна","inspections":["kidneys","gynecology"],"type":"secondary","date":"2015-05-18T10:37:17.623Z","date_add":{"$$date":1431945484264},"_id":"81Z1WTEez0KGA8Rl"}
-{"name":"sad","surname":"asd","middlename":"asd","birth":1991,"department":"Кардіологія","doctor":"Гордеева Тетьяна Олександрівна","inspections":[],"type":"firstly","date":"2015-05-18T10:51:09.648Z","date_add":{"$$date":1431946314206},"_id":"3xhjS6mul5p8WCG4"}
-{"$$deleted":true,"_id":"FElgLGIht3TEygdy"}
-{"$$deleted":true,"_id":"l7rXbimDc46P2UNs"}
-{"$$deleted":true,"_id":"aEG7cHgaVhDxcdDG"}
-{"name":"sdasad","surname":"dsa","middlename":"asddsa","birth":1910,"department":"Стоматолог","doctor":"Русева Наталія Миколаївна","inspections":["ОЧВ"],"type":"secondary","date":"2015-05-18T11:27:18.681Z","date_add":{"$$date":1431948455091},"_id":"xpV1VRfIIuEJjjwB"}
-{"$$deleted":true,"_id":"3xhjS6mul5p8WCG4"}
-{"$$deleted":true,"_id":"81Z1WTEez0KGA8Rl"}
-{"$$deleted":true,"_id":"mps99gZjWrq7r7bK"}
-{"name":"sad","surname":"asd","middlename":"asd","birth":1910,"department":"Кардіологія","doctor":"Киценко Віталій Олегович","inspections":["ОЧВ"],"type":"secondary","date":"2015-05-18T11:28:41.051Z","date_add":{"$$date":1431948534439},"_id":"3rqHUooetNnwFXtx"}
-{"name":"asd","surname":"asd","middlename":"sad","birth":1910,"department":"Терапія","doctor":"Фесенко Сергій Олександрович","inspections":[],"type":"secondary","date":"2015-05-18T11:29:21.721Z","date_add":{"$$date":1431948573690},"_id":"FZ3PQRaoUN0wh2g0"}
-{"name":"sad","surname":"sad","middlename":"sadsad","birth":1910,"department":"Кардіологія","doctor":"Фесенко Сергій Олександрович","inspections":["нирки","гінекологія"],"type":"secondary","date":"2015-05-18T11:30:01.324Z","date_add":{"$$date":1431948612276},"_id":"QX4mpnsn8OJ6rd8G"}
-{"name":"asddas","surname":"saddsa","middlename":"asddsa","birth":1993,"department":"Терапія","doctor":"Фесенко Сергій Олександрович","inspections":[],"type":"secondary","date":"2015-05-18T11:36:16.009Z","date_add":{"$$date":1431948991605},"_id":"ocvqEoTQlknOErC8"}
-{"$$deleted":true,"_id":"ocvqEoTQlknOErC8"}
-{"$$deleted":true,"_id":"QX4mpnsn8OJ6rd8G"}
-{"$$deleted":true,"_id":"FZ3PQRaoUN0wh2g0"}
-{"$$deleted":true,"_id":"3rqHUooetNnwFXtx"}
-{"$$deleted":true,"_id":"xpV1VRfIIuEJjjwB"}
-{"name":"ыф","surname":"рфыо","middlename":"ыфро","birth":1993,"department":"Терапія","doctor":"Киценко Віталій Олегович","inspections":["сердце"],"type":"secondary","date":"2015-05-18T11:37:00.410Z","date_add":{"$$date":1431949034732},"_id":"ZScB4RiD7vYB6r1T"}
-{"$$deleted":true,"_id":"ZScB4RiD7vYB6r1T"}
-{"name":"фыв","surname":"фвы","middlename":"фыв","birth":1911,"department":"Терапія","doctor":"Киценко Віталій Олегович","inspections":["нирки","сеч.міхур"],"type":"secondary","date":"2015-05-18T11:38:25.367Z","date_add":{"$$date":1431949114430},"_id":"GQCXAYOpJzYVukv7"}
+{"name":"Евгений","surname":"Жуков","middlename":"Иванович","birth":1983,"department":"Урологія","doctor":"Русева Наталія Миколаївна","inspections":["серце"],"type":"вторинний","date":"2015-05-20T07:08:15.733Z","date_add":{"$$date":1432105807016},"_id":"0L5Aam7P2x8Te2YO"}
+{"name":"Андрей","surname":"Матов","middlename":"Юрьевич","birth":1982,"department":"Урологія","doctor":"Фесенко Сергій Олександрович","inspections":["нирки","гінекологія"],"type":"первинний","date":"2015-05-20T07:10:13.251Z","date_add":{"$$date":1432105853552},"_id":"3M9mT3sn1F1CBjxi"}
+{"name":"Іван","surname":"Гуров","middlename":"Іванович","birth":1993,"department":"Терапія","doctor":"Гордеева Тетьяна Олександрівна","inspections":["ОЧВ"],"type":"первинний","date":"2015-05-20T07:04:33.059Z","date_add":{"$$date":1432105656962},"_id":"7xPe5Yi7MqoAaMZu"}
+{"name":"Владимир","surname":"Челябин","middlename":"Игоревич","birth":1993,"department":"Терапія","doctor":"Гордеева Тетьяна Олександрівна","inspections":["серце"],"type":"вторинний","date":"2015-05-20T07:10:56.053Z","date_add":{"$$date":1432105885468},"_id":"N00sRXZRFrNZmb8v"}
+{"name":"Михаил","surname":"Прохоров","middlename":"Иванович","birth":1934,"department":"Урологія","doctor":"Фесенко Сергій Олександрович","inspections":["нирки","сеч.міхур","гінекологія"],"type":"первинний","date":"2015-05-20T07:11:39.900Z","date_add":{"$$date":1432106000316},"_id":"ZOD092q3IQ8HA5Ix"}
+{"name":"Наталія","surname":"Гуріна","middlename":"Ігоревна","birth":1914,"department":"Стоматолог","doctor":"Киценко Віталій Олегович","inspections":["серце"],"type":"вторинний","date":"2015-05-20T07:13:56.991Z","date_add":{"$$date":1432106056113},"_id":"lMtFTo0lncE176eb"}
+{"name":"asd","surname":"asd","middlename":"asd","birth":1911,"department":"Урологія","doctor":"Русева Наталія Миколаївна","inspections":["нирки"],"type":"вторинний","date":"2015-05-20T09:22:25.556Z","date_add":{"$$date":1432113765338},"_id":"oRMB0LLanb6UM9lr"}
