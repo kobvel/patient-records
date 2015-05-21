@@ -26,7 +26,7 @@
       self.filter = {
         department: '',
         doctor: '',
-        inspections: '',
+        inspections: [],
         type: '',
         date: ''
       }
@@ -46,8 +46,10 @@
     };
 
     function getInspects() {
+      self.newRecord.inspections = [];
       if (self.inspectSelected === 'серце') {
         self.newRecord.inspections.push('серце');
+        console.log(self.newRecord.inspections);
       } else if (self.abdominal.stomach.bool) {
         self.newRecord.inspections.push('ОЧВ');
       } else {
@@ -60,17 +62,10 @@
     };
     self.newRecord = angular.copy(newRecord);
 
-    self.generatePdf = function() {
-      /*  var pdf = new jsPDF('p', 'pt', 'a4');
-
-
-      var string = pdf.output('dataurlstring');*/
-
-      //document.getElementById('preview').src = string;
-
-
+    self.print = function() {
       window.frames["preview"].focus();
       window.frames["preview"].print();
+
     }
 
 
@@ -92,16 +87,24 @@
       getInspects();
       var input = angular.copy(self.newRecord);
       var local = window.localStorage;
-      var date = self.newRecord.date.toLocaleString();
+      var data = self.newRecord.date;
+      var dateF = $filter('date')(data, 'dd/MM/yyyy HH:mm');
+      var inspects = self.newRecord.inspections.toString();
+      console.log();
+      //console.log('this is data:', data);
+
       local.setItem('name', self.newRecord.surname + ' ' + self.newRecord.name + ' ' + self.newRecord.middlename);
-      local.setItem('date', date);
+      local.setItem('date', dateF);
       local.setItem('birth', self.newRecord.birth);
       local.setItem('department', self.newRecord.department);
       local.setItem('doctor', self.newRecord.doctor);
+      local.setItem('inspects', inspects);
 
     }
 
     self.add = function() {
+      getInspects();
+      var input = angular.copy(self.newRecord);
       self.firstForm.$setPristine();
       self.firstForm.$setUntouched();
 
@@ -109,6 +112,7 @@
         self.newRecord = angular.copy(newRecord);
         self.records.unshift(data);
       });
+      window.localStorage.clear();
     };
 
     self.delete = function(record) {

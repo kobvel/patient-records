@@ -38,7 +38,7 @@
 }
 #preview{
 	width: 100%;
-	height: 65em;
+	height: 63em;
 }
 .head-print {
 	padding-top: 10px;
@@ -50,6 +50,16 @@
 padding-left: 35px;
 	padding-top: 25px;
 }
+.hr-div{
+	padding-top: 15px;
+}
 .hr-div hr{
-	width: 90%; 
+	width: 95%;
+	border: 0;
+    height: 1px;
+    background: #333;
+    
+}
+#cont-prview{
+	 border: 1px #D3D3D3 solid;
 }

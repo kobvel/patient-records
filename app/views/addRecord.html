@@ -2,15 +2,15 @@
 	<form  name="recordsCtrl.firstForm" novalidate>
 		<div class="col-md-5 col-xs-6">
 			<div class="form-group">
-				<label>Ім'я</label>
-				<input class="form-control" name="name" ng-model="recordsCtrl.newRecord.name" required>
-				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.name.$dirty && recordsCtrl.firstForm.name.$invalid">Необхідно вкаати ім'я</span>
-			</div>
-			<div class="form-group">
 				<label>Прізвище</label>
 				<input class="form-control"  name="surname" ng-model="recordsCtrl.newRecord.surname" required>
 				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.surname.$dirty && recordsCtrl.firstForm.surname.$invalid">Необхідно вкаати прізвище</span>
 			</div>
+			<div class="form-group">
+				<label>Ім'я</label>
+				<input class="form-control" name="name" ng-model="recordsCtrl.newRecord.name" required>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.name.$dirty && recordsCtrl.firstForm.name.$invalid">Необхідно вкаати ім'я</span>
+			</div>		
 			<div class="form-group">
 				<label>По батькові</label>
 				<input class="form-control"  name="middlename" ng-model="recordsCtrl.newRecord.middlename" required>
@@ -48,8 +48,10 @@
 			<label class="btn btn-primary" ng-model="recordsCtrl.newRecord.type" btn-radio="'вторинний'" uncheckable>Вторинний</label>			
 		</div>
 		<div class="but-add-record">
-			<button type="submit"  ng-click="recordsCtrl.add(); recordsCtrl.firstForm.$setUntouched()" class="btn btn-success btn-default"  ng-disabled="!recordsCtrl.submit()">Submit Form</button>
 			<button type="submit"  ng-click="recordsCtrl.generateForm()" class="btn btn-success btn-default">Generate Form</button>
+			<button type="submit"  ng-click="recordsCtrl.add(); recordsCtrl.firstForm.$setUntouched()" class="btn btn-success btn-default"  ng-disabled="!recordsCtrl.submit()">Submit Form</button>
+			
+			<button class="btn btn-succes" ng-click="recordsCtrl.print()">Print</button>
 		</div>
 	</div>
 	<div class="col-md-7">
@@ -93,12 +95,12 @@
 			</div>
 		</div>
 	</div>
-<button class="btn btn-succes" ng-click="recordsCtrl.generatePdf()">Generate</button>
+
 </form>
 
 
 </div>
-<div class="col-md-5" >
-	<iframe id="preview" src="views/print.html" name="preview"></iframe>
+<div class="col-md-6 col-lg-5" id="cont-prview" >
+	<iframe id="preview" frameBorder="0" ng-src="views/print.html" name="preview"></iframe>
 
 </div>

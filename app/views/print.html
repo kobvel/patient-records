@@ -5,96 +5,101 @@
 	<link rel="stylesheet" type="text/css" href="/css/styles.css">
 	<meta charset="UTF-8">
 </head>
-<body ng-controller="PrintController as print">
+<body ng-controller="PrintController as printCtrl">
 	<div class="head-print">
 		<h4>Київська міська лікарня №3</h4>
 		<h4>Відділення ультра-звукової діагностики</h4>
 	</div>
 
-	<div class="col-md-12 main-print-cont">
-		<div class="row">
-			<div class="col-xs-3">
-				<div>
-					<label>П.І.Б :</label>
+	<div class="col-xs-12 main-print-cont">
+		<div class="col-xs-8">
+			<div class="row">
+				<div class="col-xs-4">
+					<div>
+						<label>П.І.Б :</label>
+					</div>
+				</div>
+				<div class="col-xs-8">
+					<span ng-bind="printCtrl.print.name"></span>
 				</div>
 			</div>
-			<div class="col-xs-9">
-				<span ng-bind='self.print.name'></span>
+			<div class="row">
+				<div class="col-xs-4">
+					<div>
+						<label>Рік народження :</label>
+					</div>
+				</div>
+				<div class="col-xs-8">
+					<span ng-bind="printCtrl.print.birth"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4">
+					<div>
+						<label>Відділення :</label>
+					</div>
+				</div>
+				<div class="col-xs-8">
+					<span ng-bind="printCtrl.print.department"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4">
+					<div>
+						<label>Дата огляду: </label>
+					</div>
+				</div>
+				<div class="col-xs-8">
+					<span ng-bind="printCtrl.print.date | date:'fullDate'"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4">
+					<div>
+						<label>Лікар: </label>
+					</div>
+				</div>
+				<div class="col-xs-8">
+					<span ng-bind="printCtrl.print.doctor"></span>
+				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-xs-3">
-				<div>
-					<label>Рік народження :</label>
-				</div>
-			</div>
-			<div class="col-xs-9">
-				<span ng-bind='self.print.name'></span>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-3">
-				<div>
-					<label>Відділення :</label>
-				</div>
-			</div>
-			<div class="col-xs-9">
-				<span ng-bind='self.print.name'></span>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-3">
-				<div>
-					<label>Дата огляду: </label>
-				</div>
-			</div>
-			<div class="col-xs-9">
-				<span ng-bind='self.print.name'></span>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-3">
-				<div>
-					<label>Лікар: </label>
-				</div>
-			</div>
-			<div class="col-xs-9">
-				<span ng-bind='self.print.name'></span>
+		<div class="col-xs-4">
+			<div>
+				<label>Огляд проведено:</label>
+				<span ng-bind="printCtrl.print.inspects"></span>
 			</div>
 		</div>
 	</div>
-	<div class="hr-div">
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
+	<div class="col-xs-12 hr-div">
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+
+		<hr>
 	</div>
 
 	<script src="../bower/jquery/dist/jquery.js"></script>

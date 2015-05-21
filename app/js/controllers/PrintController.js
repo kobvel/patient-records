@@ -4,9 +4,9 @@
     .module('patientrec.controllers')
     .controller('PrintController', PrintController);
 
-  PrintController.$inject = [];
+  PrintController.$inject = ['$scope'];
 
-  function PrintController() {
+  function PrintController($scope) {
     var self = this;
     var local = window.localStorage;
     self.print = {
@@ -14,7 +14,8 @@
       birth: null,
       department: '',
       date: '',
-      doctor: ''
+      doctor: '',
+      inspects: ''
     }
 
 
@@ -26,7 +27,10 @@
       self.print.department = local.department;
       self.print.date = local.date;
       self.print.doctor = local.doctor;
-      console.log(local, self.print);
+      self.print.inspects = local.inspects;
+      console.log(self.print);
+      $scope.$apply();
+      //document.getElementById('preview').contentDocument.location.reload(true);
     }
 
   }

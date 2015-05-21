@@ -1,7 +1,7 @@
 <div id="table-div">
 	<div class="form-group header-for-table">
 		<div>
-			<pre>Кількість за обраними фільтрами: <em>12321</em></pre>
+			<pre>Кількість за обраними фільтрами: <em>{{(recordsCtrl.records | filter:{doctor: recordsCtrl.filter.doctor, type: recordsCtrl.filter.type, department: recordsCtrl.filter.department, birth: +recordsCtrl.filter.birth, date: recordsCtrl.filter.date, surname: recordsCtrl.filter.surname}).length}}</em></pre>
 		</div>
 	</div>
 	<table class="table table-hovered table-bordered main-stat">
@@ -52,13 +52,13 @@
 				</td>
 
 			</tr>
-			<tr ng-repeat="record in recordsCtrl.records | filter:{doctor: recordsCtrl.filter.doctor, type: recordsCtrl.filter.type, department: recordsCtrl.filter.department, birth: recordsCtrl.filter.birth, date: recordsCtrl.filter.date, surname: recordsCtrl.filter.surname}">
+			<tr ng-repeat="record in recordsCtrl.records | filter:{doctor: recordsCtrl.filter.doctor, type: recordsCtrl.filter.type, department: recordsCtrl.filter.department, birth: +recordsCtrl.filter.birth, date: recordsCtrl.filter.date, surname: recordsCtrl.filter.surname}">
 				<td>{{$index+1}}</td>
 				<td ng-bind="record.surname +' '+record.name+' '+record.middlename"></td>
-				<td ng-bind="record.birth | date:'yyyy' "></td>
+				<td ng-bind="record.birth"></td>
 				<td ng-bind="record.department"></td>
 				<td ng-bind="record.doctor"></td>
-				<td ng-bind="record.inspections"></td>
+				<td><div ng-repeat="inspect in record.inspections" ng-bind="inspect"></div></td>
 				<td ng-bind="record.type"></td>
 				<td ng-bind="record.date | date:'dd/MM/yyyy HH:mm'"></td>
 				<td><button class="btn btn-xs btn-danger" ng-click="recordsCtrl.delete(record)">Delete</button></td>
