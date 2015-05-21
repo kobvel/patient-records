@@ -46,3 +46,10 @@
 .head-print h4{
 	text-align: center;
 }
+.main-print-cont{
+padding-left: 35px;
+	padding-top: 25px;
+}
+.hr-div hr{
+	width: 90%; 
+}

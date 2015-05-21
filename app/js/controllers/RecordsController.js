@@ -4,9 +4,9 @@
     .module('patientrec.controllers')
     .controller('RecordsController', RecordsController);
 
-  RecordsController.$inject = ['RecordsDB', 'NewRecord', 'records', '$scope', '$filter', '$sce'];
+  RecordsController.$inject = ['RecordsDB', 'records', '$scope', '$filter'];
 
-  function RecordsController(RecordsDB, NewRecord, records, $scope, $filter, $sce) {
+  function RecordsController(RecordsDB, records, $scope, $filter) {
     var self = this;
     self.pdfSrc = null;
     self.firstForm = {};
@@ -59,9 +59,7 @@
       }
     };
     self.newRecord = angular.copy(newRecord);
-    self.trustSrc = function(src) {
-      return $sce.trustAsResourceUrl(src);
-    }
+
     self.generatePdf = function() {
       /*  var pdf = new jsPDF('p', 'pt', 'a4');
 
@@ -90,11 +88,19 @@
     };
 
     self.generateForm = function() {
+
       getInspects();
       var input = angular.copy(self.newRecord);
-      console.log(self.newRecord);
-      NewRecord.setRecord(self.newRecord);
+      var local = window.localStorage;
+      var date = self.newRecord.date.toLocaleString();
+      local.setItem('name', self.newRecord.surname + ' ' + self.newRecord.name + ' ' + self.newRecord.middlename);
+      local.setItem('date', date);
+      local.setItem('birth', self.newRecord.birth);
+      local.setItem('department', self.newRecord.department);
+      local.setItem('doctor', self.newRecord.doctor);
+
     }
+
     self.add = function() {
       self.firstForm.$setPristine();
       self.firstForm.$setUntouched();
