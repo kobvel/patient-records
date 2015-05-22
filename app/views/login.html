@@ -1,0 +1,20 @@
+
+<div class="container alert alert-danger" id="login-cont">
+	<label>Секретний ключ</label>
+	<div class="row">
+		<div class="col-md-8">
+			<input type="text" class="form-control" ng-model="app.keyCheck" placeholder="ключ">
+		</div>
+		<div class="col-md-4">			
+			
+				<button class="btn btn-succes" ng-click="app.checkKey()">Увійти</button>			
+				<button class="btn btn-succes" ng-click="app.logout()">Выйти</button>
+			
+		</div>		
+		<span class="span-alert" ng-if="app.permission">Вы увійшли до аккаунту</span>
+		<span class="span-alert" ng-if="!app.permission">Увійдіть до аккаунту</span>
+		
+	</div>
+</div>
+
+

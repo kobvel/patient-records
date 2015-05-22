@@ -11,6 +11,7 @@
     self.pdfSrc = null;
     self.firstForm = {};
 
+
     self.records = records;
     self.inspectSelected = 'шлунок';
     self.filterTable = null;
@@ -19,8 +20,10 @@
       doctor: '',
       inspections: '',
       type: '',
-      date: ''
+      day: '',
+      month: ''
     }
+
     self.filters = function() {
       console.log(records);
       self.filter = {
@@ -112,7 +115,9 @@
         self.newRecord = angular.copy(newRecord);
         self.records.unshift(data);
       });
+      alert('Запис доданий до бази данних!');
       window.localStorage.clear();
+
     };
 
     self.delete = function(record) {
@@ -156,6 +161,21 @@
       'Фесенко Сергій Олександрович',
       'Киценко Віталій Олегович'
     ];
+    self.months = [
+      'Січень',
+      'Лютий',
+      'Березень',
+      'Квітень',
+      'Травень',
+      'Червень',
+      'Липень',
+      'Серпень',
+      'Вересень',
+      'Жовтень',
+      'Листопад',
+      'Грудень'
+
+    ]
   }
 
 

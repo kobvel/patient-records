@@ -1,6 +1,7 @@
 (function() {
   angular.module('patientrec.controllers', []);
   angular.module('patientrec.services', []);
+  angular.module('patientrec.filters', []);
 
   angular
     .module('patientrec', [
@@ -8,7 +9,8 @@
       'ui.bootstrap',
       'ngResource',
       'patientrec.controllers',
-      'patientrec.services'
+      'patientrec.services',
+      'patientrec.filters'
     ])
     .config(stateConfig)
     .controller('WindowToolbar', WindowToolbar)
@@ -26,19 +28,29 @@
     //
     // Now set up the states
     $stateProvider
-
-    .state('records', {
-      url: "/records",
-      templateUrl: "views/records.html",
-      controller: 'RecordsController as recordsCtrl',
-      resolve: {
-        records: function(RecordsDB) {
-          return RecordsDB.get(function(data) {
-            return data;
-          });
+      .state('login', {
+        url: "/login",
+        templateUrl: "views/login.html",
+        resolve: {
+          records: function(RecordsDB) {
+            return RecordsDB.get(function(data) {
+              return data;
+            });
+          }
         }
-      }
-    })
+      })
+      .state('records', {
+        url: "/records",
+        templateUrl: "views/records.html",
+        controller: 'RecordsController as recordsCtrl',
+        resolve: {
+          records: function(RecordsDB) {
+            return RecordsDB.get(function(data) {
+              return data;
+            });
+          }
+        }
+      })
       .state('addrecord', {
         url: "/addrecord",
         templateUrl: "views/addRecord.html",

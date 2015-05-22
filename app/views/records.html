@@ -1,70 +1,83 @@
-<div id="table-div">
+<div>
 	<div class="form-group header-for-table">
 		<div>
-			<pre>Кількість за обраними фільтрами: <em>{{(recordsCtrl.records | filter:{doctor: recordsCtrl.filter.doctor, type: recordsCtrl.filter.type, department: recordsCtrl.filter.department, birth: +recordsCtrl.filter.birth, date: recordsCtrl.filter.date, surname: recordsCtrl.filter.surname}).length}}</em></pre>
+			<pre>Кількість за обраними фільтрами: <em>{{(recordsCtrl.records | filter:{doctor: recordsCtrl.filter.doctor, type: recordsCtrl.filter.type, department: recordsCtrl.filter.department, birth: +recordsCtrl.filter.birth, date: recordsCtrl.filter.date, surname: recordsCtrl.filter.surname}| filterDate: recordsCtrl.filter.day:recordsCtrl.filter.month).length}}</em></pre>
 		</div>
+		<button class="btn btn-xs btn-danger" ng-click="recordsCtrl.filters()">Clear filter</button>
 	</div>
-	<table class="table table-hovered table-bordered main-stat">
-		<thead>
-			<tr>
-				<th>№</th>
-				<th>ФІО</th>
-				<th>Дата народження</th>
-				<th>Відділення</th>
-				<th>Лікар</th>
-				<th>Огляд</th>
-				<th>Тип огляду</th>
-				<th>Дата</th>
-				<th>Дія</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td></td>
-				<td>
-					<input type="text" class="form-control" placeholder="прізвище" ng-model="recordsCtrl.filter.surname">
-				</td>
-				<td>
-					<input type="text" class="form-control" placeholder="рік народження" ng-model="recordsCtrl.filter.birth">
-				</td>
-				<td>
-					<select ng-model="recordsCtrl.filter.department" name="department" ng-options="dep for dep in recordsCtrl.departments" class="form-control">	
-					</select>
-				</td>
-				<td>
-					<select ng-model="recordsCtrl.filter.doctor" name="dooctor" ng-options="doc for doc in recordsCtrl.doctors" class="form-control">	
-					</select>
-				</td>
-				<td>
+	<div id="table-cont">
+		<table class="table table-hovered table-bordered main-stat">
+			<thead>
+				<tr>
+					<th>№</th>
+					<th>ФІО</th>
+					<th>Дата народження</th>
+					<th>Відділення</th>
+					<th>Лікар</th>
+					<th>Огляд</th>
+					<th>Тип огляду</th>
+					<th>Дата</th>
+					<th>Дія</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+					<td>
+						<input type="text" class="form-control" placeholder="прізвище" ng-model="recordsCtrl.filter.surname">
+					</td>
+					<td>
+						<input type="text" class="form-control" placeholder="рік народження" ng-model="recordsCtrl.filter.birth">
+					</td>
+					<td>
+						<select ng-model="recordsCtrl.filter.department" name="department" ng-options="dep for dep in recordsCtrl.departments" class="form-control">	
+						</select>
+					</td>
+					<td>
+						<select ng-model="recordsCtrl.filter.doctor" name="dooctor" ng-options="doc for doc in recordsCtrl.doctors" class="form-control">	
+						</select>
+					</td>
+					<td>
 
-				</td>
-				<td>
-					<select ng-model="recordsCtrl.filter.type" name="type" class="form-control">	
-						<option>первинний</option>
-						<option>вторинний</option>
-					</select>
-				</td>
-				<td>
-					<input type="text" class="form-control" placeholder="дата" ng-model="recordsCtrl.filter.date">
-				</td>
-				<td>
+					</td>
+					<td>
+						<select ng-model="recordsCtrl.filter.type" name="type" class="form-control">	
+							<option>первинний</option>
+							<option>вторинний</option>
+						</select>
+					</td>
+					<td>
+						<div class="row">
+							<div class="col-lg-6">
+								<input type="text" class="form-control" placeholder="день" ng-model="recordsCtrl.filter.day">
+							</div>
+							<div class="col-lg-6">
 
-				</td>
+								<input type="text" class="form-control" placeholder="місяць" ng-model="recordsCtrl.filter.month">
+							</div>
 
-			</tr>
-			<tr ng-repeat="record in recordsCtrl.records | filter:{doctor: recordsCtrl.filter.doctor, type: recordsCtrl.filter.type, department: recordsCtrl.filter.department, birth: +recordsCtrl.filter.birth, date: recordsCtrl.filter.date, surname: recordsCtrl.filter.surname}">
-				<td>{{$index+1}}</td>
-				<td ng-bind="record.surname +' '+record.name+' '+record.middlename"></td>
-				<td ng-bind="record.birth"></td>
-				<td ng-bind="record.department"></td>
-				<td ng-bind="record.doctor"></td>
-				<td><div ng-repeat="inspect in record.inspections" ng-bind="inspect"></div></td>
-				<td ng-bind="record.type"></td>
-				<td ng-bind="record.date | date:'dd/MM/yyyy HH:mm'"></td>
-				<td><button class="btn btn-xs btn-danger" ng-click="recordsCtrl.delete(record)">Delete</button></td>
-			</tr>
-			<button class="btn btn-xs btn-danger" ng-click="recordsCtrl.filters()">Clear filter</button>
-		</tbody>
+						</div>
 
-	</table>
+					</td>
+					<td>
+
+					</td>
+
+				</tr>
+				<tr ng-repeat="record in recordsCtrl.records | filter:{doctor: recordsCtrl.filter.doctor, type: recordsCtrl.filter.type, department: recordsCtrl.filter.department, birth: +recordsCtrl.filter.birth, surname: recordsCtrl.filter.surname }| filterDate: recordsCtrl.filter.day:recordsCtrl.filter.month">
+					<td>{{$index+1}}</td>
+					<td ng-bind="record.surname +' '+record.name+' '+record.middlename"></td>
+					<td ng-bind="record.birth"></td>
+					<td ng-bind="record.department"></td>
+					<td ng-bind="record.doctor"></td>
+					<td><div ng-repeat="inspect in record.inspections" ng-bind="inspect"></div></td>
+					<td ng-bind="record.type"></td>
+					<td ng-bind="record.date | date:'dd/MM/yyyy HH:mm'"></td>
+					<td><button class="btn btn-xs btn-danger" ng-click="recordsCtrl.delete(record)">Delete</button></td>
+				</tr>
+				
+			</tbody>
+
+		</table>
+	</div>
 </div>
