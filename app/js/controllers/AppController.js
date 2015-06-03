@@ -9,7 +9,6 @@
     var self = this;
 
 
-
     self.permission = Permission.get();
     self.key = "1";
     self.keyCheck = '';
@@ -21,6 +20,15 @@
       $('#login-cont').addClass('alert-danger');
       $('#login-cont').removeClass('alert-success');
     }
+
+    self.init = function(){
+      console.log(screen.height);
+      var size = screen.height/1.5;
+      console.log(size);
+      $('#table-cont').height(size);
+
+    }
+    
     self.checkKey = function() {
 
       if (self.key === self.keyCheck) {

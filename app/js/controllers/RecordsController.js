@@ -24,6 +24,10 @@
       month: ''
     }
 
+    self.setPrintFormSize = function(){    
+      var size = screen.height/1.3;
+      $('#preview').height(size);
+    }
     self.filters = function() {
       console.log(records);
       self.filter = {
@@ -47,6 +51,7 @@
       type: '',
       date: ''
     };
+   
 
     function getInspects() {
       self.newRecord.inspections = [];
@@ -72,10 +77,10 @@
     }
 
 
-    $scope.today = function() {
+    self.today = function() {
       self.newRecord.date = new Date();
     };
-    $scope.today();
+    self.today();
 
     self.submit = function() {
       var bool = true;

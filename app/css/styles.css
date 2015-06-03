@@ -17,16 +17,16 @@
 	overflow-y: scroll;
 	word-break: normal;
 }
-#table-cont{
-	height: 60em;
+#table-cont{	
 	overflow: auto;
 }
 .but-add-record{
-	padding-top: 1em;
+	padding-top: 10em;
 	text-align: right;
 	vertical-align: text-bottom;
 
 }
+
 .view-route{
 	padding-top: 50px;
 }
@@ -47,7 +47,6 @@
 }
 #preview{
 	width: 100%;
-	height: 63em;
 }
 .head-print {
 	padding-top: 10px;
@@ -56,8 +55,11 @@
 	text-align: center;
 }
 .main-print-cont{
-	padding-left: 35px;
+	padding-left: none;
 	padding-top: 25px;
+}
+.main-print-cont div{
+	padding: none;
 }
 .hr-div{
 	padding-top: 15px;
@@ -69,7 +71,4 @@
     width: 100%;
     border: none;
     border-top: solid 1px #aaa;
-
-#cont-prview{
-	border: 1px #D3D3D3 solid;
 }
