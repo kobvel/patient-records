@@ -8,7 +8,7 @@ var
 var db = {
 
   records: new nedb({
-    filename: recordsDB,
+    filename: path.join(global.appData, recordsDB),
     autoload: true
   })
 };

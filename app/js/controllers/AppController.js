@@ -21,10 +21,8 @@
       $('#login-cont').removeClass('alert-success');
     }
 
-    self.init = function(){
-      console.log(screen.height);
-      var size = screen.height/1.5;
-      console.log(size);
+    self.init = function(){     
+      var size = 768/1.5;   
       $('#table-cont').height(size);
 
     }

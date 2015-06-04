@@ -25,7 +25,7 @@
     }
 
     self.setPrintFormSize = function(){    
-      var size = screen.height/1.3;
+      var size = 768/1.3;
       $('#preview').height(size);
     }
     self.filters = function() {
