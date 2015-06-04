@@ -10,7 +10,7 @@
 
 
     self.permission = Permission.get();
-    self.key = "1";
+    self.key = "09031994";
     self.keyCheck = '';
     self.logout = function() {
       Permission.set(false);
