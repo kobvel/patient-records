@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "main": "index.html",
   "window": {
-    "toolbar": true,
+    "title": "Київська міська лікарня №3",
+    "icon": "patient.png",
+    "toolbar": false,
     "width": 1366,
     "height": 768,
     "frame": true,

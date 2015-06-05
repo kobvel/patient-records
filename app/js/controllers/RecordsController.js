@@ -4,9 +4,9 @@
     .module('patientrec.controllers')
     .controller('RecordsController', RecordsController);
 
-  RecordsController.$inject = ['RecordsDB', 'records', '$scope', '$filter'];
+  RecordsController.$inject = ['RecordsDB', 'records', '$scope', '$filter', '$modal'];
 
-  function RecordsController(RecordsDB, records, $scope, $filter) {
+  function RecordsController(RecordsDB, records, $scope, $filter, $modal) {
     var self = this;
     self.pdfSrc = null;
     self.firstForm = {};
@@ -103,7 +103,7 @@
 
       local.setItem('name', self.newRecord.surname + ' ' + self.newRecord.name + ' ' + self.newRecord.middlename);
       local.setItem('date', dateF);
-      local.setItem('birth', self.newRecord.birth);
+      local.setItem('birth', self.newRecord.birth || '');
       local.setItem('department', self.newRecord.department);
       local.setItem('doctor', self.newRecord.doctor);
       local.setItem('inspects', inspects);
@@ -118,9 +118,12 @@
 
       RecordsDB.add(input, function(data) {
         self.newRecord = angular.copy(newRecord);
+        self.today();
         self.records.unshift(data);
       });
-      alert('Запис доданий до бази данних!');
+      $modal.open({
+        templateUrl: 'views/modalRecordAdded.html'
+      })
       window.localStorage.clear();
 
     };
@@ -166,21 +169,6 @@
       'Фесенко Сергій Олександрович',
       'Киценко Віталій Олегович'
     ];
-    self.months = [
-      'Січень',
-      'Лютий',
-      'Березень',
-      'Квітень',
-      'Травень',
-      'Червень',
-      'Липень',
-      'Серпень',
-      'Вересень',
-      'Жовтень',
-      'Листопад',
-      'Грудень'
-
-    ]
   }
 
 

@@ -1,5 +1,5 @@
 
-<div class="container alert alert-danger" id="login-cont">
+<div class="container alert" ng-class="{'alert-danger': !app.permission, 'alert-success': app.permission}" id="login-cont">
 	<label>Секретний ключ</label>
 	<div class="row">
 		<div class="col-md-8">

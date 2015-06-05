@@ -4,17 +4,17 @@
 			<div class="form-group">
 				<label>Прізвище</label>
 				<input class="form-control"  name="surname" ng-model="recordsCtrl.newRecord.surname" required>
-				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.surname.$dirty && recordsCtrl.firstForm.surname.$invalid">Необхідно вкаати прізвище</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.surname.$dirty && recordsCtrl.firstForm.surname.$invalid">Необхідно вказати прізвище</span>
 			</div>
 			<div class="form-group">
 				<label>Ім'я</label>
 				<input class="form-control" name="name" ng-model="recordsCtrl.newRecord.name" required>
-				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.name.$dirty && recordsCtrl.firstForm.name.$invalid">Необхідно вкаати ім'я</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.name.$dirty && recordsCtrl.firstForm.name.$invalid">Необхідно вказати ім'я</span>
 			</div>		
 			<div class="form-group">
 				<label>По батькові</label>
 				<input class="form-control"  name="middlename" ng-model="recordsCtrl.newRecord.middlename" required>
-				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.middlename.$dirty && recordsCtrl.firstForm.middlename.$invalid">Необхідно вкаати по батькові</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.middlename.$dirty && recordsCtrl.firstForm.middlename.$invalid">Необхідно вказати по батькові</span>
 			</div>
 
 			<div class="form-group">
@@ -28,7 +28,7 @@
 				<label>Відділення</label>
 				<select ng-model="recordsCtrl.newRecord.department" name="department" ng-options="dep for dep in recordsCtrl.departments" class="form-control" required>	
 				</select>
-				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.department.$invalid">Необхідно вкаати відділення</span>
+				<span style="color:red" class="error-message" ng-show="recordsCtrl.firstForm.department.$invalid">Необхідно вказати відділення</span>
 			</div>
 
 		<!-- </div>
@@ -94,9 +94,9 @@
 	</div>
 	<div class="but-add-record">
 			<button type="submit"  ng-click="recordsCtrl.generateForm()" class="btn btn-success btn-default">Сгенерувати документ</button>
-			<button type="submit"  ng-click="recordsCtrl.add(); recordsCtrl.firstForm.$setUntouched()" class="btn btn-success btn-default"  ng-disabled="!recordsCtrl.submit()">Submit Form</button>
+			<button type="submit"  ng-click="recordsCtrl.add(); recordsCtrl.firstForm.$setUntouched()" class="btn btn-success btn-default"  ng-disabled="!recordsCtrl.submit()">Зберегти запис</button>
 			
-			<button class="btn btn-succes" ng-click="recordsCtrl.print()">Print</button>
+			<button class="btn btn-succes" ng-click="recordsCtrl.print()">Друк</button>
 		</div>
 </form>
 

@@ -3,7 +3,6 @@
 		<div>
 			<pre>Кількість за обраними фільтрами: <em>{{(recordsCtrl.records | filter:{doctor: recordsCtrl.filter.doctor, type: recordsCtrl.filter.type, department: recordsCtrl.filter.department, birth: +recordsCtrl.filter.birth, date: recordsCtrl.filter.date, surname: recordsCtrl.filter.surname}| filterDate: recordsCtrl.filter.day:recordsCtrl.filter.month).length}}</em></pre>
 		</div>
-		<button class="btn btn-xs btn-danger" ng-click="recordsCtrl.filters()">Clear filter</button>
 	</div>
 	<div id="table-cont">
 		<table class="table table-hovered table-bordered main-stat" ng-init="app.init()">
@@ -30,11 +29,11 @@
 						<input type="text" class="form-control" placeholder="рік народження" ng-model="recordsCtrl.filter.birth">
 					</td>
 					<td>
-						<select ng-model="recordsCtrl.filter.department" name="department" ng-options="dep for dep in recordsCtrl.departments" class="form-control">	
+						<select ng-model="recordsCtrl.filter.department" name="department" ng-options="dep for dep in recordsCtrl.departments" class="form-control">
 						</select>
 					</td>
 					<td>
-						<select ng-model="recordsCtrl.filter.doctor" name="dooctor" ng-options="doc for doc in recordsCtrl.doctors" class="form-control">	
+						<select ng-model="recordsCtrl.filter.doctor" name="doctor" ng-options="doc for doc in recordsCtrl.doctors" class="form-control">
 						</select>
 					</td>
 					<td>
@@ -52,16 +51,13 @@
 								<input type="text" class="form-control" placeholder="день" ng-model="recordsCtrl.filter.day">
 							</div>
 							<div class="col-lg-6">
-
 								<input type="text" class="form-control" placeholder="місяць" ng-model="recordsCtrl.filter.month">
 							</div>
-
 						</div>
-
 					</td>
 					<td>
-
-					</td>
+					<button class="btn btn-xs btn-danger" ng-click="recordsCtrl.filters()">Очистити фiльтр</button>
+					</td>	
 
 				</tr>
 				<tr ng-repeat="record in recordsCtrl.records | filter:{doctor: recordsCtrl.filter.doctor, type: recordsCtrl.filter.type, department: recordsCtrl.filter.department, birth: +recordsCtrl.filter.birth, surname: recordsCtrl.filter.surname }| filterDate: recordsCtrl.filter.day:recordsCtrl.filter.month">

@@ -70,6 +70,8 @@
   WindowToolbar.$inject = ['$scope', 'Window'];
 
   function WindowToolbar($scope, Window) {
+    Window.title = "Київська міська лікарня №3";
+
     $scope.windowMinimize = function() {
       Window.minimize();
     };

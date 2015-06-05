@@ -16,9 +16,6 @@
       Permission.set(false);
       self.permission = Permission.get();
       self.keyCheck = '';
-
-      $('#login-cont').addClass('alert-danger');
-      $('#login-cont').removeClass('alert-success');
     }
 
     self.init = function(){     
@@ -28,22 +25,15 @@
     }
     
     self.checkKey = function() {
-
       if (self.key === self.keyCheck) {
         Permission.set(true);
         self.permission = Permission.get();
         self.keyCheck = '';
-        $('#login-cont').removeClass('alert-danger');
-        $('#login-cont').addClass('alert-success');
-
       } else {
         self.keyCheck = '';
         alert("Ключ введено невірно!");
-
       }
     }
-
-
   }
 
 
